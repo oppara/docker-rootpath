@@ -1,0 +1,7 @@
+# /hoge/ 配下でのルートパス指定は全て/hoge/ 配下の同階層にリダイレクト
+# /css/common.css -> /hoge/css/common.css
+RewriteEngine on
+RewriteBase /
+RewriteCond %{HTTP_REFERER} /hoge/
+RewriteCond %{REQUEST_URI} !/hoge/
+RewriteRule ^(.*)$ hoge/$1 [L,R]
